@@ -7,11 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pystencils_autodiff-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pystencils_autodiff-{{ version }}.tar.gz
   sha256: 7ab2dc27bd3a173367fcbc6b9a91c5fa85193119706160d1f731d6ae11ab22e4
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -19,13 +19,13 @@ requirements:
   host:
     - pip
     - pyscaffold >=3.2a0,<3.3a0
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - jinja2
     - numpy
     - p-tqdm >=1.3
     - pystencils >=0.2.8
-    - python >=3.6
+    - python >={{ python_min }}
     - stringcase
     - sympy >=0.5
     - tqdm
@@ -39,6 +39,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://i10git.cs.fau.de/pycodegen/pystencils
