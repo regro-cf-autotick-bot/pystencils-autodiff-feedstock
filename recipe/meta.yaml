@@ -20,6 +20,7 @@ requirements:
     - pip
     - pyscaffold >=3.2a0,<3.3a0
     - python {{ python_min }}
+    - setuptools
   run:
     - jinja2
     - numpy
